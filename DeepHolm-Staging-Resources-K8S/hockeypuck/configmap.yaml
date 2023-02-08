@@ -1,0 +1,53 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hockeypuck-conf
+  namespace: hockeypuck
+data:
+  hockeypuck.conf: |
+    [hockeypuck]
+loglevel="DEBUG"
+indexTemplate="/hockeypuck/lib/templates/index.html.tmpl"
+vindexTemplate="/hockeypuck/lib/templates/index.html.tmpl"
+statsTemplate="/hockeypuck/lib/templates/stats.html.tmpl"
+webroot="/hockeypuck/lib/www"
+hostname="hockeypuck.affirmhq.com"
+contact="0xF79362DA44A2D1DB"
+software="Hockeypuck"
+
+[hockeypuck.hkp]
+bind=":11371"
+
+[hockeypuck.hkp.queries]
+selfSignedOnly=true
+keywordSearchDisabled=true
+
+# prevent abusively large keys
+[hockeypuck.openpgp]
+maxPacketLength=8192
+maxKeyLength=1048576
+
+[hockeypuck.openpgp.db]
+driver="postgres-jsonb"
+dsn="database=hockeypuck user=postgresadmin password=admin123 port=5432 sslmode=disable"
+
+# compatibility with legacy SKS
+[hockeypuck.conflux.recon]
+version="1.1.6"
+allowCIDRs=["127.0.0.1/8"]
+filters=["yminsky.dedup","yminsky.merge"]
+
+[hockeypuck.conflux.recon.leveldb]
+path="/hockeypuck/data/ptree"
+
+#[hockeypuck.conflux.recon]
+#httpAddr=":11371"
+#reconAddr=":11370"
+#version="1.1.3"                # this is default
+#allowCIDRs=["10.0.0.1/8"]      # default is []
+#filters=["yminsky.dedup,yminsky.merge"]
+
+#[hockeypuck.conflux.recon.partner.keyserver]
+#httpAddr="keyserver.team.affirm.com:11371"
+#reconAddr="keyserver.team.affirm.com:11370"

@@ -1,0 +1,33 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1EWXlPREU1TWpZeE1sb1hEVE14TURZeU5qRTVNall4TWxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTUU5CkQyNTVGZjhFSkNJa01EUG1DeTZEMlVRcTBFYm5mOXJROUFsVjFya0ZxbkowUDMrWHFwZHhBeXpyWHBrUW1Xa0QKVnFiQ1Bsc2NxUGZKTVgyVDI4US85T2I2OE9sbnB1dVJuR1JWa0RjcTdIdGl5Y3FZeWh6cnRsejZGKzZseVhVdAo4cGU0b3JTRnFSeXdvc2s2VkZuRkJRNVhlNThFWnVRUGRxSG1GWDJXcHlHSXJ0bGhySXVCYk1jaFhLdGxJZDJsCm9OWTVDWkxQOENqS0xobVdiSmF2SVpGNWV3c1hzbENsT1hXT3VRLzZQNFhHYnk1K0VEK1p6ek5LRkdXVEdQUmUKaHNpVGtIOEI0STh1K0ZhVnNlZFhZL1hMYlhpMElmdzZYZU9uQVh3cXY3aVJCZlFPdWt5ZDYxSTJPTlBmMEdoTwppZ1JzN0pqOEtMamNJeVNySDhrQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZEZUc3cG1tWDdFSUZPTWIxWEFidllDUWNTYTBNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFDNm9zVW5BcWJqVHA2N0hvY1NCQ09XWWEvZ2p2ZG1pS3o1WCt1OUp4Sm5GbVlVUndIbgpOWldLU2x4d0J6YkxtU25qM0pab2I0bCtMTjQ1L2lCTDVQUSswbWl1N0dWNC9GNHZnaDFFSllPS0FTR3pBcnFKCjhxdTJZZzlYY2dqSDFpUEg2KytoTUxNdUVDTUxzTDBROVpiMFo4by9aNXBNZ08xeXQzRTBtOVhpT3E3VS84SzUKUEZ0WG8rWDdjK2JXQ0xkM20wME1vV3UxZkdweS9OWmdLWk1tL0ZueTdUU2JIVVF3a0JuNkVaN3FNcUFVdWdUNQpZdHpFMi9KbkZhTm9QM0ZVMENoMEQ0UGVmNTZLTDl3UnJVV1h3NytUWmNRaVA5aytiV1dLdCtSOXhoeTdMSDR6CnZmWVFpU0FqdDQ3MFRLRnhiU2xybk1EM3JpK0RyUkZBcC9NVgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://E1C9B945547055B8433C3E3BDECAE2AF.yl4.us-west-1.eks.amazonaws.com
+  name: arn:aws:eks:us-west-1:932862063257:cluster/DeepHolm-Staging
+contexts:
+- context:
+    cluster: arn:aws:eks:us-west-1:932862063257:cluster/DeepHolm-Staging
+    user: arn:aws:eks:us-west-1:932862063257:cluster/DeepHolm-Staging
+  name: arn:aws:eks:us-west-1:932862063257:cluster/DeepHolm-Staging
+current-context: arn:aws:eks:us-west-1:932862063257:cluster/DeepHolm-Staging
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:us-west-1:932862063257:cluster/DeepHolm-Staging
+  user: 
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: /usr/local/bin/aws
+      args:
+      - --region
+      - us-west-1
+      - eks
+      - get-token
+      - --cluster-name
+      - DeepHolm-Staging
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      - name: AWS_PROFILE
+        value: k8admin
+      provideClusterInfo: false

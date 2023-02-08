@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: hockeypuck
+spec:
+  type: ClusterIP
+  selector:
+    app: hockeypuck
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+
+---
+
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: postgres
+  namespace: hockeypuck
+  labels:
+    app: postgres
+spec:
+  containers:
+    - name: postgres
+      image: 932862063257.dkr.ecr.us-west-1.amazonaws.com/postgres:latest
+      ports:
+        - containerPort: 5432
+      env:
+        - name: 
+          value: postgres
+        - name: postgresadmin
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: user
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: password
+      
+
+
+       
