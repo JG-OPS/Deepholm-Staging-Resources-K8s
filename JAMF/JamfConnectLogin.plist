@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowNetworkSelection</key>
+	<true/>
+	<key>CreateAdminUser</key>
+	<true/>
+	<key>CreateJamfConnectPassword</key>
+	<true/>
+	<key>OIDCClientID</key>
+	<string>a6c58250-8361-0139-f211-0a7bd5a095c3101712</string>
+	<key>OIDCNewPassword</key>
+	<false/>
+	<key>OIDCProvider</key>
+	<string>OneLogin</string>
+	<key>OIDCROPGID</key>
+	<string>a6c58250-8361-0139-f211-0a7bd5a095c3101712</string>
+	<key>OIDCRedirectURI</key>
+	<string>https://127.0.0.1/jamfconnect</string>
+	<key>OIDCTenant</key>
+	<string>affirm</string>
+	<key>ROPGSuccessCodes</key>
+	<array>
+		<string>MFA</string>
+	</array>
+	<key>ROPGTenant</key>
+	<string>affirm</string>
+</dict>
+</plist>
